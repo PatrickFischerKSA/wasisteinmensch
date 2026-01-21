@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Was ist ein Mensch? – Lernlandschaft</title>
+  <meta name="description" content="Lernlandschaft zu Uncanny Valley, Akzeptanzlücke, ARTE-Video, Wampfler-Essay und Synthesefrage: Was ist ein Mensch?" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+
+  <header class="topbar">
+    <div class="topbar__left">
+      <div class="brand">
+        <div class="brand__mark" aria-hidden="true">∿</div>
+        <div class="brand__text">
+          <div class="brand__title">Was ist ein Mensch?</div>
+          <div class="brand__subtitle">Uncanny Valley • Akzeptanzlücke • ARTE • KI als Spiegel • Synthese</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="topbar__right">
+      <div class="progress">
+        <div class="progress__meta">
+          <span id="progressLabel">Fortschritt: 0%</span>
+          <span class="dot" aria-hidden="true">•</span>
+          <span id="lastSaved">Letztes Speichern: –</span>
+        </div>
+        <div class="progress__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div id="progressFill" class="progress__fill"></div>
+        </div>
+      </div>
+
+      <button id="btnDashboard" class="btn btn--primary" type="button" aria-controls="dashboard" aria-expanded="false">
+        Dashboard
+      </button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="side" aria-label="Module">
+      <div class="side__section">
+        <div class="side__heading">Navigation</div>
+        <button class="navbtn" type="button" data-go="dashboard">Dashboard</button>
+        <button class="navbtn" type="button" data-go="m1">1) Uncanny Valley</button>
+        <button class="navbtn" type="button" data-go="m2">2) Akzeptanzlücke</button>
+        <button class="navbtn" type="button" data-go="m3">3) Video ARTE</button>
+        <button class="navbtn" type="button" data-go="m4">4) Essay „KI als Spiegel“</button>
+        <button class="navbtn" type="button" data-go="m5">5) Synthese: Was ist ein Mensch?</button>
+      </div>
+
+      <div class="side__section">
+        <div class="side__heading">Dokumente</div>
+        <a class="link" href="assets/docs/uncanny_valley.pdf" target="_blank" rel="noopener">PDF: Uncanny Valley</a>
+        <a class="link" href="assets/docs/wampfler_ki_als_spiegel.pdf" target="_blank" rel="noopener">PDF: KI als Spiegel (Wampfler)</a>
+      </div>
+
+      <div class="side__section">
+        <div class="side__heading">Werkzeuge</div>
+        <button id="btnExportTxt" class="btn" type="button">Export TXT</button>
+        <button id="btnExportJson" class="btn" type="button">Export JSON</button>
+        <button id="btnImportJson" class="btn" type="button">Import JSON</button>
+        <input id="importFile" class="hidden" type="file" accept="application/json" />
+        <button id="btnResetAll" class="btn btn--danger" type="button">Reset (alles löschen)</button>
+      </div>
+
+      <footer class="side__footer">
+        <div class="small">
+          Lokal gespeichert (LocalStorage).<br />
+          GitHub Pages kompatibel. Keine externen Frameworks.
+        </div>
+      </footer>
+    </nav>
+
+    <main id="main" class="main" tabindex="-1">
+      <section id="dashboard" class="card">
+        <div class="card__head">
+          <h1>Dashboard</h1>
+          <div class="pill" id="overallPill">0% abgeschlossen</div>
+        </div>
+
+        <div class="grid grid--2">
+          <div class="panel">
+            <h2>Status</h2>
+            <ul class="statuslist" id="statusList"></ul>
+          </div>
+
+          <div class="panel">
+            <h2>Hinweise</h2>
+            <ul class="bullets">
+              <li><strong>Autosave:</strong> Notizen und Antworten werden automatisch gespeichert.</li>
+              <li><strong>Export:</strong> TXT für Abgabe/Protokoll, JSON für Backup oder Gerätewechsel.</li>
+              <li><strong>Reset:</strong> löscht <em>alles</em> in dieser Lernlandschaft (LocalStorage).</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="m1" class="card">
+        <div class="card__head">
+          <h1>1) Uncanny Valley</h1>
+          <div class="pill" data-pill-for="m1">offen</div>
+        </div>
+
+        <div class="grid grid--2">
+          <div class="panel">
+            <h2>Material</h2>
+            <p>
+              Öffne das PDF und arbeite die Kerngedanken heraus.
+            </p>
+            <a class="btn btn--primary" href="assets/docs/uncanny_valley.pdf" target="_blank" rel="noopener">
+              PDF öffnen
+            </a>
+
+            <div class="checkline">
+              <input type="checkbox" id="m1_done" data-done="m1" />
+              <label for="m1_done"><strong>Modul abgeschlossen</strong></label>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h2>Arbeitsauftrag</h2>
+            <ol class="tasks">
+              <li>Definiere <em>Uncanny Valley</em> in 2–3 Sätzen (eigene Worte).</li>
+              <li>Nenne mindestens 3 typische <em>Auslöser</em> (z. B. Mimik, Bewegungen, Stimme …).</li>
+              <li>Erkläre die Rolle von <em>Erwartungen</em>: Was erwarten wir von „menschlich“?</li>
+              <li>Notiere 2 Beispiele aus Medien/Alltag, die das Unheimliche auslösen.</li>
+            </ol>
+
+            <label class="label" for="m1_notes">Notizen</label>
+            <textarea id="m1_notes" data-notes="m1" placeholder="Deine Notizen zu Uncanny Valley …"></textarea>
+
+            <div class="quiz">
+              <h3>Mini-Check (Selbstkontrolle)</h3>
+              <div class="qa">
+                <div class="q">Was passiert „im Tal“ mit Empathie/Vertrautheit?</div>
+                <input class="input" id="m1_q1" data-answer="m1_q1" placeholder="Antwort (kurz) …" />
+              </div>
+              <div class="qa">
+                <div class="q">Warum ist „fast wie ein Mensch“ oft unheimlicher als „klar künstlich“?</div>
+                <input class="input" id="m1_q2" data-answer="m1_q2" placeholder="Antwort (kurz) …" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="m2" class="card">
+        <div class="card__head">
+          <h1>2) Akzeptanzlücke</h1>
+          <div class="pill" data-pill-for="m2">offen</div>
+        </div>
+
+        <div class="grid grid--2">
+          <div class="panel">
+            <h2>Kernidee</h2>
+            <p>
+              Die <strong>Akzeptanzlücke</strong> (oft gleichbedeutend mit dem Uncanny-Valley-Effekt) beschreibt:
+              Je menschenähnlicher eine Figur wirkt, desto mehr Nähe entsteht – bis zu einem Punkt, an dem
+              <em>zu viel</em> Ähnlichkeit plötzlich <strong>Abwehr, Unbehagen oder Ekel</strong> auslöst.
+            </p>
+
+            <div class="checkline">
+              <input type="checkbox" id="m2_done" data-done="m2" />
+              <label for="m2_done"><strong>Modul abgeschlossen</strong></label>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h2>Arbeitsauftrag</h2>
+            <ol class="tasks">
+              <li>Erkläre die Kurve/„talförmige“ Entwicklung in eigenen Worten.</li>
+              <li>Warum ist „Uneindeutigkeit“ (menschlich/nicht-menschlich) so zentral?</li>
+              <li>Welche Rolle spielen Kategorien wie <em>Objekt, Mitmensch, Leiche</em> (Einordnung/Deutung)?</li>
+              <li>Formuliere 3 Kriterien, die Akzeptanz erhöhen könnten (Design/Animation/Interaktion).</li>
+            </ol>
+
+            <label class="label" for="m2_notes">Notizen</label>
+            <textarea id="m2_notes" data-notes="m2" placeholder="Deine Notizen zur Akzeptanzlücke …"></textarea>
+
+            <div class="quiz">
+              <h3>Mini-Check</h3>
+              <div class="qa">
+                <div class="q">Was bedeutet „widersprüchliche Informationen“ bei hybriden Figuren?</div>
+                <input class="input" id="m2_q1" data-answer="m2_q1" placeholder="Antwort (kurz) …" />
+              </div>
+              <div class="qa">
+                <div class="q">Nenne 1 Beispiel, wo „zu realistisch“ in 3D/Film Unbehagen erzeugt.</div>
+                <input class="input" id="m2_q2" data-answer="m2_q2" placeholder="Antwort (kurz) …" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="m3" class="card">
+        <div class="card__head">
+          <h1>3) Video ARTE (Dropbox)</h1>
+          <div class="pill" data-pill-for="m3">offen</div>
+        </div>
+
+        <div class="grid grid--2">
+          <div class="panel">
+            <h2>Video</h2>
+            <p>
+              Das Video ist über Dropbox verlinkt. Je nach Browser/Dropbox-Einstellung kann das Video direkt im
+              Player laufen oder als Stream geöffnet werden.
+            </p>
+
+            <div class="videoWrap">
+              <video id="arteVideo" controls preload="metadata">
+                <source id="arteVideoSrc" src="" type="video/mp4" />
+                Dein Browser unterstützt das Video-Tag nicht.
+              </video>
+            </div>
+
+            <div class="inline">
+              <a class="btn btn--primary" href="https://www.dropbox.com/scl/fi/d3dlrwqcqilxfh2rp5kva/Uncanny-Valley-Verst-rende-hnlichkeit-Kultur-erkl-rt-Flick-Flack-ARTE.mp4?rlkey=tt803xeh6vsg5s9sguc2sw1se&st=zkiy7due&dl=0" target="_blank" rel="noopener">Dropbox öffnen</a>
+              <button id="btnCopyDirect" class="btn" type="button">Direktlink kopieren</button>
+            </div>
+
+            <div class="checkline">
+              <input type="checkbox" id="m3_done" data-done="m3" />
+              <label for="m3_done"><strong>Modul abgeschlossen</strong></label>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h2>Arbeitsauftrag</h2>
+            <ol class="tasks">
+              <li>Notiere 5 konkrete Momente/Szenen, die Unbehagen auslösen (mit Zeitmarke).</li>
+              <li>Welche Erklärungen bietet das Video für Angst/Faszination?</li>
+              <li>Was wird als „Misslingen“ in Animation/Film dargestellt – und warum?</li>
+              <li>Verbinde mindestens 2 Beispiele aus dem Video mit dem Begriff Akzeptanzlücke.</li>
+            </ol>
+
+            <label class="label" for="m3_notes">Notizen</label>
+            <textarea id="m3_notes" data-notes="m3" placeholder="Notizen zum ARTE-Video (inkl. Zeitmarken) …"></textarea>
+
+            <div class="quiz">
+              <h3>Mini-Check</h3>
+              <div class="qa">
+                <div class="q">Welche Emotionen werden in Bezug auf „fast menschliche“ Gesichter genannt?</div>
+                <input class="input" id="m3_q1" data-answer="m3_q1" placeholder="Antwort (kurz) …" />
+              </div>
+              <div class="qa">
+                <div class="q">Welche zentrale Ursache wird genannt, wenn wir etwas nicht einordnen können?</div>
+                <input class="input" id="m3_q2" data-answer="m3_q2" placeholder="Antwort (kurz) …" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="m4" class="card">
+        <div class="card__head">
+          <h1>4) Essay „KI als Spiegel“ (Philippe Wampfler)</h1>
+          <div class="pill" data-pill-for="m4">offen</div>
+        </div>
+
+        <div class="grid grid--2">
+          <div class="panel">
+            <h2>Material</h2>
+            <p>
+              Lies den Essay und sammle Argumente, wie KI uns (als Menschen) einen Spiegel vorhält.
+            </p>
+            <a class="btn btn--primary" href="assets/docs/wampfler_ki_als_spiegel.pdf" target="_blank" rel="noopener">
+              PDF öffnen
+            </a>
+
+            <div class="checkline">
+              <input type="checkbox" id="m4_done" data-done="m4" />
+              <label for="m4_done"><strong>Modul abgeschlossen</strong></label>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h2>Arbeitsauftrag</h2>
+            <ol class="tasks">
+              <li>Fasse die Kernthese in 3–5 Sätzen zusammen.</li>
+              <li>Wie erklärt der Text das Unheimliche (Uncanny Valley) als Spiegel-Effekt?</li>
+              <li>Welche Rolle spielt der Turing-Test im Argument?</li>
+              <li>Unterscheide die zwei Phasen (KI als Werkzeug vs. Vermischung Mensch/Technologie).</li>
+              <li>Notiere 2 Konsequenzen für Wahrheit/Moral/Liebe (je 1–2 Sätze).</li>
+            </ol>
+
+            <label class="label" for="m4_notes">Notizen</label>
+            <textarea id="m4_notes" data-notes="m4" placeholder="Notizen zum Wampfler-Essay …"></textarea>
+
+            <div class="quiz">
+              <h3>Mini-Check</h3>
+              <div class="qa">
+                <div class="q">Was macht den Spiegel-Vergleich in Bezug auf Chat-KI plausibel?</div>
+                <input class="input" id="m4_q1" data-answer="m4_q1" placeholder="Antwort (kurz) …" />
+              </div>
+              <div class="qa">
+                <div class="q">Warum kritisiert Jaron Lanier den Turing-Test (in der Argumentation)?</div>
+                <input class="input" id="m4_q2" data-answer="m4_q2" placeholder="Antwort (kurz) …" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="m5" class="card">
+        <div class="card__head">
+          <h1>5) Synthese: Was ist ein Mensch?</h1>
+          <div class="pill" data-pill-for="m5">offen</div>
+        </div>
+
+        <div class="grid grid--2">
+          <div class="panel">
+            <h2>Synthesefrage</h2>
+            <p>
+              Verbinde Uncanny Valley, Akzeptanzlücke, das ARTE-Video und den Essay „KI als Spiegel“ zu einer
+              begründeten Position.
+            </p>
+
+            <div class="checkline">
+              <input type="checkbox" id="m5_done" data-done="m5" />
+              <label for="m5_done"><strong>Modul abgeschlossen</strong></label>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h2>Schreibauftrag (leitend)</h2>
+            <ol class="tasks">
+              <li><strong>Begriffskern:</strong> Formuliere eine Arbeitsdefinition von „Mensch“ (nicht biologisch allein).</li>
+              <li><strong>Grenzfall:</strong> Woran merkst du, dass etwas „menschlich wirkt“ – und woran, dass es kippt?</li>
+              <li><strong>Spiegel:</strong> Welche menschlichen Eigenschaften zeigt KI besonders deutlich (positiv/negativ)?</li>
+              <li><strong>Normativ:</strong> Was <em>soll</em> als menschlich gelten – und warum?</li>
+              <li><strong>Konsequenz:</strong> Welche Haltung folgt für Umgang mit KI (Design, Schule, Alltag)?</li>
+            </ol>
+
+            <label class="label" for="m5_text"><strong>Dein Synthese-Text</strong></label>
+            <textarea id="m5_text" data-notes="m5_text" class="textarea--tall" placeholder="Schreibe hier deinen Synthese-Text …"></textarea>
+
+            <label class="label" for="m5_theses">3 Thesen (stichwortartig)</label>
+            <textarea id="m5_theses" data-notes="m5_theses" placeholder="These 1 …&#10;These 2 …&#10;These 3 …"></textarea>
+
+            <div class="quiz">
+              <h3>Mini-Check</h3>
+              <div class="qa">
+                <div class="q">Welche 2–3 Kriterien wären für dich minimal nötig, um etwas als „Mensch“ anzuerkennen?</div>
+                <input class="input" id="m5_q1" data-answer="m5_q1" placeholder="Antwort (kurz) …" />
+              </div>
+              <div class="qa">
+                <div class="q">Was ist dein stärkstes Gegenargument gegen deine eigene Position?</div>
+                <input class="input" id="m5_q2" data-answer="m5_q2" placeholder="Antwort (kurz) …" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card__head">
+          <h1>Ende</h1>
+          <div class="pill">bereit für Export</div>
+        </div>
+        <p class="small">
+          Tipp: Exportiere am Schluss sowohl <strong>TXT</strong> (Abgabe/Lesbarkeit) als auch <strong>JSON</strong> (Backup).
+        </p>
+        <div class="inline">
+          <button class="btn btn--primary" type="button" data-go="dashboard">Zurück zum Dashboard</button>
+          <button class="btn" type="button" id="btnScrollTop">Nach oben</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
